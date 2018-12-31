@@ -40,6 +40,15 @@ BaseWars.Props = {
     ["models/mechanics/solid_steel/plank_8.mdl"] = 500
 }
 
+BaseWars.Shop.Entities = {
+    "bw_base_dispenser_ammo",
+    "bw_base_dispenser_armor",
+    "bw_base_dispenser_health",
+    "bw_dispenser_armor_v2",
+    "bw_dispenser_health_v2",
+    "bw_dispenser_ammo_v2"
+}
+
 BaseWars.Shop.PrinterT0 = {
     "bw_vault",
     "bw_base_printer"

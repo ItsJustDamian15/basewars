@@ -6,7 +6,8 @@ local server_modules = {
     "playerMeta",
     "spawnFunctions",
     "physgunFix",
-    "messaging"
+    "messaging",
+    "chatcommands"
 }
 
 local client_modules = {

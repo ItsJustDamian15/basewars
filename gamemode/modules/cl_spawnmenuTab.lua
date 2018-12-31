@@ -5,6 +5,26 @@ spawnmenu.AddCreationTab( "BaseWars - Printers", function()
     local catlist = vgui.Create("DCategoryList", ctrl)
     catlist:Dock(FILL)
 
+    local entities = catlist:Add("Entities")
+    local iconlist_entities = vgui.Create("DIconLayout", entities)
+    entities:SetContents(iconlist_entities)
+    
+    for k, v in pairs(BaseWars.Shop.Entities) do
+        local ent = scripted_ents.Get(v)
+        local icon = vgui.Create("SpawnIcon", iconlist_entities)
+        icon:SetModel(ent.Model)
+        icon:SetToolTip(ent.PrintName .. "\nPrice " .. BaseWars.Currency .. ent.Price .. "\nLevel " .. ent.ReqLevel)
+        icon.DoClick = function(icon)
+            LocalPlayer():ConCommand("bw_buy_entity " .. v)
+        end
+        surface.SetTextColor(0, 0, 0, 255)
+        
+        local info = vgui.Create("DLabel", icon)
+        info:SetText("Testing YEET")
+        info:SetColor(Color(0, 0, 0))
+        info:SetPos(info.x, info.y + 25)
+    end
+
     local tier0 = catlist:Add("Printers - Tier 0")
     local iconlist = vgui.Create("DIconLayout", tier0)
     tier0:SetContents(iconlist)
@@ -51,8 +71,8 @@ end, "icon16/bricks.png", 2 )
 
 local hide = {
     [language.GetPhrase("spawnmenu.category.npcs")] = true,
-    --[language.GetPhrase("spawnmenu.category.entities")] = true,
-    --[language.GetPhrase("spawnmenu.category.weapons")] = true,
+    [language.GetPhrase("spawnmenu.category.entities")] = true,
+    [language.GetPhrase("spawnmenu.category.weapons")] = true,
     [language.GetPhrase("spawnmenu.category.vehicles")] = true,
     [language.GetPhrase("spawnmenu.category.postprocess")] = true,
     [language.GetPhrase("spawnmenu.category.saves")] = true,

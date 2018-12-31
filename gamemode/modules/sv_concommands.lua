@@ -27,3 +27,45 @@ function bwBuyEntity(ply, cmd, args)
     return ent
 end
 concommand.Add("bw_buy_entity", bwBuyEntity)
+
+function bwUpgradeEntity(ply, cmd, args)
+    local tr = ply:GetEyeTrace()
+    if not tr.Hit then sendHint("You are not looking at an entity!", true, false, ply) return end
+    local ent = tr.Entity
+
+    if not ent.IsPrinter then sendHint("That entity is not a printer!", true, false, ply) return end
+    local upgrade_price = ent.Price * ent:GetUpgrade()
+    if not ply:CanAfford(upgrade_price) then sendHint("You cannot afford that upgrade!", true, false, ply) return end
+    if ent:GetUpgrade() >= ent.MaxUpgrade then sendHint("That printer is already max level!", true, false, ply) return end
+    ply:AddMoney(-upgrade_price)
+    ent:SetUpgrade(ent:GetUpgrade() + 1)
+    sendHint("Printer upgraded!", false, false, ply)
+end
+concommand.Add("bw_upgrade_entity", bwUpgradeEntity)
+
+function bwSellEntity(ply, cmd, args)
+    local tr = ply:GetEyeTrace()
+    if not tr.Hit then sendHint("You are not looking at an entity!", true, false, ply) return end
+    local ent = tr.Entity
+
+    if ent:GetNWEntity("owner", nil) != ply then sendHint("That is not your printer!", true, false, ply) return end
+    ply:AddMoney(ent.Price * 0.75)
+    sendHint("Sold " .. ent.PrintName .. " for " .. BaseWars.Currency .. (ent.Price * 0.75) .."!", false, false, ply)
+    ent:Remove()
+end
+concommand.Add("bw_sell_entity", bwSellEntity)
+
+function bwBuyWeapon(ply, cmd, args)
+    if args[1] == nil then sendMessage("Argument is empty!", false, ply) return end
+    
+    for k, v in pairs(BaseWars.Weapons.Shop) do
+        if v["ClassName"] == args[1] then
+            if not ply:CanAfford(v["Price"]) then sendHint("You cannot afford this weapon!", true, false, ply) return end
+            if ply:GetLevel() < (v["Level"]) then sendHint("Your level is to low for this weapon!", true, false, ply) return end
+            ply:AddMoney(-(v["Price"]))
+            ply:Give(v["ClassName"])
+            sendHint("You bought a " .. v["Name"] .. " for " .. BaseWars.Currency .. v["Price"], false, false, ply)
+        end
+    end
+end
+concommand.Add("bw_buy_weapon", bwBuyWeapon)

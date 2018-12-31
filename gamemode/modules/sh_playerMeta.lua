@@ -19,3 +19,11 @@ end
 function meta:GetKarma()
     return self:GetNWInt("bw_player_karma")
 end
+
+function meta:CanAfford(amount)
+    if self:GetMoney() >= amount then
+        return true
+    else
+        return false
+    end
+end

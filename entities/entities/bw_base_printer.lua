@@ -10,6 +10,7 @@ ENT.PrintRate = 3
 ENT.MaxCapacity = 10000
 ENT.MaxUpgrade = 25
 ENT.FontColor = Color(60, 60, 60)
+ENT.IsPrinter = true
 
 if SERVER then
     AddCSLuaFile()
@@ -51,7 +52,7 @@ if CLIENT then
         surface.SetFont("DermaDefault")
         local printername = self.PrintName
         local printernamewidth = surface.GetTextSize(printername)
-        local upgradeText = "Level: " .. self:GetUpgrade() .. " / " .. self.MaxUpgrade
+        local upgradeText = "Level: " .. self:GetUpgrade() .. " / " .. self.MaxUpgrade .. " (Next upgrade Price " .. BaseWars.Currency .. (self.Price * self:GetUpgrade()) .. ")"
         local upgradeTextWidth = surface.GetTextSize(upgradeText)
         local moneyText = BaseWars.Currency .. string.Comma(self:GetStorage()) .. " / " .. BaseWars.Currency .. string.Comma(self.MaxCapacity)
         local moneyTextWidth = surface.GetTextSize(moneyText)
