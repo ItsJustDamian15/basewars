@@ -97,4 +97,20 @@ hook.Add("PlayerSay", "bw_customChatCommands", function(ply, msg, team)
         if not ply:isAdmin() then sendHint("You are not an admin!", true, false, ply) return end
         RefundAll()
     end
+
+    if string.lower(args[1]) == "!refund" then
+        if not ply:isAdmin() then sendHint("You are not an admin!", true, false, ply) return end
+        if args[2] == nil then sendHint("Invalid Arguments", true, false, ply) return end
+        local target = findPlayer(args[2])
+
+        RefundPlayer(target)
+    end
+
+    if string.lower(args[1]) == "!fullrefund" then
+        if not ply:isAdmin() then sendHint("You are not an admin!", true, false, ply) return end
+        if args[2] == nil then sendHint("Invalid Arguments", true, false, ply) return end
+        local target = findPlayer(args[2])
+
+        FullRefundPlayer(target)
+    end
 end)

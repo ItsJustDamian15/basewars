@@ -61,7 +61,7 @@ if CLIENT then
         local printernamewidth = surface.GetTextSize(printername)
         local upgradeText = "Level: " .. self:GetUpgrade() .. " / " .. self.MaxUpgrade .. " (Next upgrade Price " .. BaseWars.Currency .. (self.Price * self:GetUpgrade()) .. ")"
         local upgradeTextWidth = surface.GetTextSize(upgradeText)
-        local moneyText = BaseWars.Currency .. string.Comma(self:GetStorage()) .. " / " .. BaseWars.Currency .. string.Comma(self.MaxCapacity)
+        local moneyText = BaseWars.Currency .. string.Comma(self:GetStorage()) .. " / " .. BaseWars.Currency .. string.Comma(self:GetCapacity())
         local moneyTextWidth = surface.GetTextSize(moneyText)
 
         local cash = self:GetStorage()

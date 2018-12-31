@@ -3,7 +3,7 @@ function FullRefundAll()
         local refund = 0
         for p, q in pairs(ents.FindByClass("bw_*")) do
             if q:GetNWEntity("owner", nil) == v then
-                refund = refund + q.Price
+                refund = refund + (q.Price * q:GetUpgrade())
                 q:Remove()
             end
         end
@@ -17,7 +17,7 @@ function RefundAll()
         local refund = 0
         for p, q in pairs(ents.FindByClass("bw_*")) do
             if q:GetNWEntity("owner", nil) == v then
-                refund = refund + (q.Price * 0.75)
+                refund = refund + ((q.Price * q:GetUpgrade()) * 0.75)
                 q:Remove()
             end
         end
@@ -30,7 +30,7 @@ function RefundPlayer(ply)
     local refund = 0
     for p, q in pairs(ents.FindByClass("bw_*")) do
         if q:GetNWEntity("owner", nil) == ply then
-            refund = refund + (q.Price * 0.75)
+            refund = refund + ((q.Price * q:GetUpgrade()) * 0.75)
             q:Remove()
         end
     end
@@ -42,7 +42,7 @@ function FullRefundPlayer(ply)
     local refund = 0
     for p, q in pairs(ents.FindByClass("bw_*")) do
         if q:GetNWEntity("owner", nil) == ply then
-            refund = refund + q.Price
+            refund = refund + (q.Price * q:GetUpgrade())
             q:Remove()
         end
     end
