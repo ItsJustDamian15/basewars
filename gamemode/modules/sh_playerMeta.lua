@@ -27,3 +27,12 @@ function meta:CanAfford(amount)
         return false
     end
 end
+
+function meta:isAdmin()
+    for k, v in pairs(BaseWars.Admins) do
+        if v == self:SteamID() then
+            return true
+        end
+    end
+    return false
+end

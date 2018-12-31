@@ -17,12 +17,11 @@ spawnmenu.AddCreationTab( "BaseWars - Printers", function()
         icon.DoClick = function(icon)
             LocalPlayer():ConCommand("bw_buy_entity " .. v)
         end
-        surface.SetTextColor(0, 0, 0, 255)
         
         local info = vgui.Create("DLabel", icon)
-        info:SetText("Testing YEET")
+        info:SetText(ent.PrintName)
         info:SetColor(Color(0, 0, 0))
-        info:SetPos(info.x, info.y + 25)
+        info:SetPos(info.x, info.y + 50)
     end
 
     local tier0 = catlist:Add("Printers - Tier 0")
@@ -37,6 +36,11 @@ spawnmenu.AddCreationTab( "BaseWars - Printers", function()
         icon.DoClick = function(icon)
             LocalPlayer():ConCommand("bw_buy_entity " .. v)
         end
+
+        local info = vgui.Create("DLabel", icon)
+        info:SetText(ent.PrintName)
+        info:SetColor(Color(0, 0, 0))
+        info:SetPos(info.x, info.y + 50)
     end
 
 	return ctrl

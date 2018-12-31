@@ -18,7 +18,8 @@ local client_modules = {
 }
 
 local shared_modules = {
-    "playerMeta"
+    "playerMeta",
+    "blockNoClip"
 }
 
 if SERVER then

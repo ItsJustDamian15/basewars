@@ -69,3 +69,31 @@ function bwBuyWeapon(ply, cmd, args)
     end
 end
 concommand.Add("bw_buy_weapon", bwBuyWeapon)
+
+function bwGiveMoney(ply, cmd, args)
+    if args[1] == nil then sendHint("Invalid arguments", true, false, ply) return end
+    if args[2] == nil then sendHint("Invalid arguments", true, false, ply) return end
+    local target = findPlayer(args[1])
+    local amount = tonumber(args[2])
+
+    if not ply:CanAfford(amount) then sendHint("You cannot afford to give this money!", true, false, ply) return end
+    if amount > BaseWars.GiveLimit then sendHint("You tried to give more then the max!", true, false, ply) return end
+    ply:AddMoney(-amount)
+    target:AddMoney(amount)
+    sendMessage("You gave " .. target:Name() .. " " .. BaseWars.Currency .. amount .. "!", false, ply)
+    sendMessage("You got " .. BaseWars.Currency .. amount .. " from " .. ply:Name(), false, target)
+end
+concommand.Add("bw_givemoney", bwGiveMoney)
+
+function bwDropMoney(ply, cmd, args)
+    if args[1] == nil then sendHint("Invalid arguments", true, false, ply) return end
+    local amount = tonumber(args[1])
+
+    if not ply:CanAfford(amount) then sendHint("You cannot drop that mutch becouse you dont have that!", true, false, ply) return end
+    ply:AddMoney(-amount)
+    local ent = ents.Create("bw_money")
+    ent:Activate()
+    ent:Spawn()
+    ent:SetAmount(amount)
+end
+concommand.Add("bw_dropmoney", bwDropMoney)

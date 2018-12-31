@@ -19,6 +19,11 @@ BaseWars.Loadout.Default = {
 BaseWars.DefaultMoney = 10000
 BaseWars.Currency = "€"
 BaseWars.Weapons.LevelRequirement = 3
+BaseWars.GiveLimit = 1000000000
+
+BaseWars.Admins = {
+    "STEAM_0:0:0"
+}
 
 BaseWars.Props = {
     ["models/props_building_details/Storefront_Template001a_Bars.mdl"] = 250,
