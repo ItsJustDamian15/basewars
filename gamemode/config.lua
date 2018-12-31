@@ -16,13 +16,24 @@ BaseWars.Loadout.Default = {
     "gmod_tool"
 }
 
+BaseWars.BlacklistedDrops = {
+    ["weapon_physgun"] = true,
+    ["weapon_fists"] = true,
+    ["weapon_physcannon"] = true,
+    ["gmod_tool"] = true
+}
+
 BaseWars.DefaultMoney = 10000
 BaseWars.Currency = "€"
 BaseWars.Weapons.LevelRequirement = 3
 BaseWars.GiveLimit = 1000000000
 
 BaseWars.Admins = {
-    "STEAM_0:0:0"
+    ["STEAM_0:0:0"] = true --Local PC
+}
+
+BaseWars.Donators = {
+    ["STEAM_0:0:0"] = true --Local PC
 }
 
 BaseWars.Props = {
@@ -55,13 +66,25 @@ BaseWars.Shop.Entities = {
 }
 
 BaseWars.Shop.PrinterT0 = {
-    "bw_vault",
+    --"bw_vault",
     "bw_base_printer",
     "bw_printer_0t1",
     "bw_printer_0t2",
     "bw_printer_0t3",
     "bw_printer_0t4",
     "bw_printer_0t5"
+}
+
+BaseWars.Shop.PrinterT1 = {
+    "bw_printer_1t1",
+    "bw_printer_1t2",
+    "bw_printer_1t3",
+    "bw_printer_1t4",
+    "bw_printer_1t5"
+}
+
+BaseWars.Shop.Upgrades = {
+    "bw_upgrade_capacity"
 }
 
 BaseWars.Weapons.Shop = {

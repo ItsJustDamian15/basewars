@@ -9,6 +9,8 @@ include("modules.lua")
 
 util.AddNetworkString("BaseWars_ChatMessage")
 util.AddNetworkString("BaseWars_Hint")
+util.AddNetworkString("BaseWars_chatMessage")
+util.AddNetworkString("BaseWars_chatMessage_Server")
 
 function findPlayer(name)
     for k, v in pairs(player.GetAll()) do
@@ -18,4 +20,7 @@ function findPlayer(name)
     end
 
     return nil
+end
+function GM:PlayerSwitchFlashlight( ply, enabled )
+    return true
 end

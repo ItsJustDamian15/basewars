@@ -15,7 +15,8 @@ local client_modules = {
     "hud",
     "spawnmenuTab",
     "messaging",
-    "scoreboard"
+    "scoreboard",
+    "customChat"
 }
 
 local shared_modules = {

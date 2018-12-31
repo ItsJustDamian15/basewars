@@ -34,8 +34,8 @@ function GM:ScoreboardShow()
 
                 draw.SimpleText(v:Name() .. " - Level " .. v:GetLevel(), "DermaDefault", 20, 10, Color(255,255,255,255))
                 draw.SimpleText(BaseWars.Currency .. v:GetMoneyString(), "DermaDefault", 20, 25, Color(255, 255, 255, 255))
-                draw.SimpleText("Kills: " .. v:Frags(), "DermaDefault", PlayerList:GetWide() - 20, 10, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT)
-                draw.SimpleText("Deaths: " .. v:Deaths(), "DermaDefault", PlayerList:GetWide() - 20, 25, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT)
+                draw.SimpleText("Kills: " .. v:Frags() .. " - Deaths: " .. v:Deaths(), "DermaDefault", PlayerList:GetWide() - 20, 10, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT)
+                draw.SimpleText("Faction: " .. team.GetName(v:Team()), "DermaDefault", PlayerList:GetWide() - 20, 25, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT)
             end
         end
 

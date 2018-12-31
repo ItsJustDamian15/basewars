@@ -29,10 +29,17 @@ function meta:CanAfford(amount)
 end
 
 function meta:isAdmin()
-    for k, v in pairs(BaseWars.Admins) do
-        if v == self:SteamID() then
-            return true
-        end
+    if BaseWars.Admins[self:SteamID()] then
+        return true
+    else
+        return false
     end
-    return false
+end
+
+function meta:isDonator()
+    if BaseWars.Donators[self:SteamID()] then
+        return true
+    else
+        return false
+    end
 end

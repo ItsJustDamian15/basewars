@@ -38,4 +38,10 @@ end)
 hook.Add("PlayerDisconnect", "stats_playerDisconnect", function(ply)
     RefundPlayer(ply)
     savePData(ply)
+
+    for k, v in pairs(ents.FindByClass("prop_*")) do
+        if v:GetNWEntity("owner", nil) == ply then
+            v:Remove()
+        end
+    end
 end)

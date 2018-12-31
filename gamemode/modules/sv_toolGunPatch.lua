@@ -1,10 +1,9 @@
---[[function TOOL:LeftClick(tr)
-    if !tr.Hit then return false end
-    local ent = tr.Entity
-    if !ent:IsValid() then return false end
+function GM:CanTool(ply, tr, tool)
+    if not tr.Hit then return false end
 
-    local owner = ent:GetNWEntity("owner", nil)
-    if owner != LocalPlayer() then return false end
-
-    return true
-end]]
+    if tr.Entity:GetNWInt("owner", nil) == ply then
+        return true
+    else
+        return false
+    end
+end

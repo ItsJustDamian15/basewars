@@ -43,8 +43,8 @@ if SERVER then
         if self:Health() <= 0 then
             local attacker = damage:GetAttacker() or self:GetNWInt("owner")
 
-            attacker:AddMoney(self.Price * 0.75)
-            sendMessage("You received " .. BaseWars.Currency .. (self.Price * 0.75) .. " for destruction of " .. self.PrintName, attacker)
+            attacker:AddMoney((self.Price * 0.75) * self:GetUpgrade())
+            sendMessage("You received " .. BaseWars.Currency .. ((self.Price * 0.75) * self:GetUpgrade()) .. " for destruction of " .. self.PrintName, attacker)
             self:Remove()
         end
     end

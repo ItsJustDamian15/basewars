@@ -8,7 +8,7 @@ function bwBuyEntity(ply, cmd, args)
     if(!tr.Hit) then sendMessage("Cant find a place to spawn it!", false, ply) return end
     local entCount = ply:GetNWInt(ent:GetClass() .. "count")
     if (entCount >= ent.Limit) then sendMessage("You reached the max of this entity!", false, ply) return end
-    if ply:GetMoney() < ent.Price then sendMessage("You cannot afford this printer!", false, ply) return end
+    if ply:GetMoney() < ent.Price then sendMessage("You cannot afford this entity!", false, ply) return end
     if ply:GetLevel() < ent.ReqLevel then sendMessage("Your level is below the requirement!", false, ply) return end
     ply:AddMoney(-ent.Price)
 

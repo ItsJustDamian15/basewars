@@ -8,3 +8,5 @@ DeriveGamemode( "sandbox" )
 function GM:Initialize()
 	
 end
+
+team.SetUp(0, "None", Color(60, 60, 60), true)

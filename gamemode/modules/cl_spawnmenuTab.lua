@@ -1,34 +1,9 @@
-spawnmenu.AddCreationTab( "BaseWars - Printers", function()
-
-	local ctrl = vgui.Create( "SpawnmenuContentPanel" )
+function createIconListEntity(parrent, name, tbl)
+    local cat = parrent:Add(name)
+    local iconlist = vgui.Create("DIconLayout", cat)
+    cat:SetContents(iconlist)
     
-    local catlist = vgui.Create("DCategoryList", ctrl)
-    catlist:Dock(FILL)
-
-    local entities = catlist:Add("Entities")
-    local iconlist_entities = vgui.Create("DIconLayout", entities)
-    entities:SetContents(iconlist_entities)
-    
-    for k, v in pairs(BaseWars.Shop.Entities) do
-        local ent = scripted_ents.Get(v)
-        local icon = vgui.Create("SpawnIcon", iconlist_entities)
-        icon:SetModel(ent.Model)
-        icon:SetToolTip(ent.PrintName .. "\nPrice " .. BaseWars.Currency .. ent.Price .. "\nLevel " .. ent.ReqLevel)
-        icon.DoClick = function(icon)
-            LocalPlayer():ConCommand("bw_buy_entity " .. v)
-        end
-        
-        local info = vgui.Create("DLabel", icon)
-        info:SetText(ent.PrintName)
-        info:SetColor(Color(0, 0, 0))
-        info:SetPos(info.x, info.y + 50)
-    end
-
-    local tier0 = catlist:Add("Printers - Tier 0")
-    local iconlist = vgui.Create("DIconLayout", tier0)
-    tier0:SetContents(iconlist)
-    
-    for k, v in pairs(BaseWars.Shop.PrinterT0) do
+    for k, v in pairs(tbl) do
         local ent = scripted_ents.Get(v)
         local icon = vgui.Create("SpawnIcon", iconlist)
         icon:SetModel(ent.Model)
@@ -42,6 +17,36 @@ spawnmenu.AddCreationTab( "BaseWars - Printers", function()
         info:SetColor(Color(0, 0, 0))
         info:SetPos(info.x, info.y + 50)
     end
+end
+
+function createIconListWeapon(parrent, name, tbl)
+    local cat = parrent:Add("Weapons")
+    local iconlist = vgui.Create("DIconLayout", cat)
+    cat:SetContents(iconlist)
+    
+    for k, v in pairs(tbl) do
+        print(weapons.Get(v["ClassName"]))
+        local model = v["Model"]
+        local icon = vgui.Create("SpawnIcon", iconlist)
+        icon:SetModel(model)
+        icon:SetToolTip(v["Name"] .. "\nPrice " .. BaseWars.Currency .. v["Price"] .. "\nLevel " .. v["Level"])
+        icon.DoClick = function(icon)
+            LocalPlayer():ConCommand("bw_buy_weapon " .. v["ClassName"])
+        end
+    end
+end
+
+spawnmenu.AddCreationTab( "BaseWars - Printers", function()
+
+	local ctrl = vgui.Create( "SpawnmenuContentPanel" )
+    
+    local catlist = vgui.Create("DCategoryList", ctrl)
+    catlist:Dock(FILL)
+
+    createIconListEntity(catlist, "Base Entities", BaseWars.Shop.Entities)
+    createIconListEntity(catlist, "Upgrades", BaseWars.Shop.Upgrades)
+    createIconListEntity(catlist, "Printers - Tier 0", BaseWars.Shop.PrinterT0)
+    createIconListEntity(catlist, "Printers - Tier 1", BaseWars.Shop.PrinterT1)
 
 	return ctrl
 
@@ -54,20 +59,7 @@ spawnmenu.AddCreationTab( "BaseWars - Weapons", function()
     local catlist = vgui.Create("DCategoryList", ctrl)
     catlist:Dock(FILL)
 
-    local tier0 = catlist:Add("Weapons")
-    local iconlist = vgui.Create("DIconLayout", tier0)
-    tier0:SetContents(iconlist)
-    
-    for k, v in pairs(BaseWars.Weapons.Shop) do
-        print(weapons.Get(v["ClassName"]))
-        local model = v["Model"]
-        local icon = vgui.Create("SpawnIcon", iconlist)
-        icon:SetModel(model)
-        icon:SetToolTip(v["Name"] .. "\nPrice " .. BaseWars.Currency .. v["Price"] .. "\nLevel " .. v["Level"])
-        icon.DoClick = function(icon)
-            LocalPlayer():ConCommand("bw_buy_weapon " .. v["ClassName"])
-        end
-    end
+    createIconListWeapon(catlist, "Weapons", BaseWars.Weapons.Shop)
 
 	return ctrl
 
