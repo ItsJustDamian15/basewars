@@ -87,4 +87,14 @@ hook.Add("PlayerSay", "bw_customChatCommands", function(ply, msg, team)
         target:SetExp(amount)
         sendMessage(ply:Name() .. " Set " .. target:Name() .. "'s EXP to " .. amount .. "!", true, nil)
     end
+
+    if string.lower(args[1]) == "!fullrefundall" then
+        if not ply:isAdmin() then sendHint("You are not an admin!", true, false, ply) return end
+        FullRefundAll()
+    end
+
+    if string.lower(args[1]) == "!refundall" then
+        if not ply:isAdmin() then sendHint("You are not an admin!", true, false, ply) return end
+        RefundAll()
+    end
 end)

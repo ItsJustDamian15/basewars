@@ -56,7 +56,12 @@ BaseWars.Shop.Entities = {
 
 BaseWars.Shop.PrinterT0 = {
     "bw_vault",
-    "bw_base_printer"
+    "bw_base_printer",
+    "bw_printer_0t1",
+    "bw_printer_0t2",
+    "bw_printer_0t3",
+    "bw_printer_0t4",
+    "bw_printer_0t5"
 }
 
 BaseWars.Weapons.Shop = {

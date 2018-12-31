@@ -30,10 +30,12 @@ end)
 
 hook.Add("ShutDown", "stats_serverShutdown", function()
     for k, v in pairs(player.GetAll()) do
+        FullRefundPlayer(v)
         savePData(v)
     end
 end)
 
 hook.Add("PlayerDisconnect", "stats_playerDisconnect", function(ply)
-    savePData(v)
+    RefundPlayer(ply)
+    savePData(ply)
 end)

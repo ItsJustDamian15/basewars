@@ -7,7 +7,8 @@ local server_modules = {
     "spawnFunctions",
     "physgunFix",
     "messaging",
-    "chatcommands"
+    "chatcommands",
+    "refunding"
 }
 
 local client_modules = {
