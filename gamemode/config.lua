@@ -96,3 +96,22 @@ BaseWars.Weapons.Shop = {
     {Name = "RPG", ClassName = "weapon_rpg", Price = 1000000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_rocket_launcher.mdl"},
     {Name = "Frag Grende", ClassName = "weapon_frag", Price = 100000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_grenade.mdl"}
 }
+
+if CLIENT then
+    surface.CreateFont( "BaseWars_HUD", {
+        font = "Arial", -- Use the font-name which is shown to you by your operating system Font Viewer, not the file name
+        size = 20,
+        weight = 700,
+        blursize = 0,
+        scanlines = 0,
+        antialias = true,
+        underline = false,
+        italic = false,
+        strikeout = false,
+        symbol = false,
+        rotary = false,
+        shadow = false,
+        additive = false,
+        outline = false,
+    } )
+end
