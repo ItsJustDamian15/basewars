@@ -10,10 +10,13 @@ ENT.ReqLevel = 1
 ENT.Limit = 1
 ENT.EntHealth = 100
 ENT.time = 0
+ENT.MaxCapacity = 5000
 
 function ENT:SetupDataTables()
     self:NetworkVar("Int", 0, "Upgrade")
     self:NetworkVar("Int", 1, "Storage")
+    self:NetworkVar("Bool", 0, "HasCapacity")
+    self:NetworkVar("Int", 2, "Capacity")
 end
 
 if SERVER then
@@ -33,6 +36,7 @@ if SERVER then
 
         self.time = CurTime()
         self:SetUpgrade(1)
+        self:SetCapacity(self.MaxCapacity)
 
         self:SetHealth(self.EntHealth)
     end

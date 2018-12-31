@@ -27,14 +27,21 @@ if SERVER then
         end
     end
 
+    function ENT:Touch(ent)
+        if ent:GetClass() == "bw_upgrade_capacity" then
+            self:SetCapacity(self:GetCapacity() * 2)
+            ent:Remove()
+        end
+    end
+
     function ENT:Think()
         if CurTime() > self.time + 1 then
             self.time = CurTime()
             local amount = (self:GetUpgrade() * self.PrintRate)
             self:SetStorage(self:GetStorage() + amount)
             
-            if self:GetStorage() > self.MaxCapacity then
-                self:SetStorage(self.MaxCapacity)
+            if self:GetStorage() > self:GetCapacity() then
+                self:SetStorage(self:GetCapacity())
             end
         end
     end
