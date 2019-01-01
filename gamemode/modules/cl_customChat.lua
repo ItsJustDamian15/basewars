@@ -12,12 +12,12 @@ function GM:OnPlayerChat(ply, text, teamChat, isDead)
         table.insert(tab, "(Team) ")
     end
 
-    if ply:isDonator() then
+    if BaseWars.Donators[ply:SteamID()] then
         table.insert(tab, Color(8, 140, 28))
         table.insert(tab, "[$] ")
     end
 
-    if ply:isAdmin() then
+    if BaseWars.Admins[ply:SteamID()] then
         table.insert(tab, Color(66, 182, 244))
         table.insert(tab, "[Management] ")
     end

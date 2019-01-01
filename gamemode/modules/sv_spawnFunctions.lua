@@ -17,7 +17,7 @@ end
 function GM:PlayerDeath(victim, inflictor, attacker)
     --attacker:AddFrags(1)
     for k, v in pairs(victim:GetWeapons()) do
-        if not BaseWars.BlacklistedDrops[v] then
+        if not table.HasValue(BaseWars.BlacklistedDrops, v:GetClass()) then
             victim:DropWeapon(v)
         end
     end

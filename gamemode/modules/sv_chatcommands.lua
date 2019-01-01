@@ -113,4 +113,10 @@ hook.Add("PlayerSay", "bw_customChatCommands", function(ply, msg, team)
 
         FullRefundPlayer(target)
     end
+
+    if string.lower(args[1]) == "/dw" then
+        if table.HasValue(BaseWars.BlacklistedDrops, ply:GetActiveWeapon():GetClass()) then sendHint("You cant drop this!", true, false, ply) return end
+        ply:DropWeapon(ply:GetActiveWeapon())
+        return ""
+    end
 end)

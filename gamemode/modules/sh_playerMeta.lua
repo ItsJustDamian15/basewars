@@ -43,3 +43,7 @@ function meta:isDonator()
         return false
     end
 end
+
+function meta:isRaiding()
+    return self:GetNWEntity("raiding", nil)
+end

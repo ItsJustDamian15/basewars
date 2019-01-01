@@ -17,10 +17,31 @@ BaseWars.Loadout.Default = {
 }
 
 BaseWars.BlacklistedDrops = {
-    ["weapon_physgun"] = true,
-    ["weapon_fists"] = true,
-    ["weapon_physcannon"] = true,
-    ["gmod_tool"] = true
+    "weapon_physgun",
+    "weapon_fists",
+    "weapon_physcannon",
+    "gmod_tool"
+}
+
+BaseWars.BlacklistedTools = {
+    "hoverball",
+    "emitter",
+    "motor",
+    "muscle",
+    "pulley",
+    "ballsocket",
+    "axis",
+    "hydraulic",
+    "dynamite",
+    "balloon",
+    "physprop",
+    "thruster",
+    "wheel",
+    "eyeposer",
+    "faceposer",
+    "finger",
+    "inflator",
+    "trails"
 }
 
 BaseWars.DefaultMoney = 10000

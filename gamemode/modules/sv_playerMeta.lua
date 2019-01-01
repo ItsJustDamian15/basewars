@@ -35,3 +35,7 @@ end
 function meta:AddExp(amount)
     self:SetExp(self:GetExp() + amount)
 end
+
+function meta:Raid(target)
+    self:SetNWEntity("raiding", target)
+end
