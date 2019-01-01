@@ -33,6 +33,11 @@ function createIconListWeapon(parrent, name, tbl)
         icon.DoClick = function(icon)
             LocalPlayer():ConCommand("bw_buy_weapon " .. v["ClassName"])
         end
+
+        local info = vgui.Create("DLabel", icon)
+        info:SetText(v["Name"])
+        info:SetColor(Color(0, 0, 0))
+        info:SetPos(info.x, info.y + 50)
     end
 end
 
@@ -67,8 +72,8 @@ end, "icon16/bricks.png", 2 )
 
 local hide = {
     [language.GetPhrase("spawnmenu.category.npcs")] = true,
-    [language.GetPhrase("spawnmenu.category.entities")] = true,
-    [language.GetPhrase("spawnmenu.category.weapons")] = true,
+    --[language.GetPhrase("spawnmenu.category.entities")] = true,
+    --[language.GetPhrase("spawnmenu.category.weapons")] = true,
     [language.GetPhrase("spawnmenu.category.vehicles")] = true,
     [language.GetPhrase("spawnmenu.category.postprocess")] = true,
     [language.GetPhrase("spawnmenu.category.saves")] = true,

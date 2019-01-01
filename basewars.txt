@@ -4,7 +4,7 @@
 	"title"		"BaseWars"
 	"maps"		""
 	"menusystem"	"1"
-	"workshopid"	"15895"
+	"workshopid"	"1599616818"
 
 	"settings"
 	{

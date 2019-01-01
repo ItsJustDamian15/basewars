@@ -15,7 +15,7 @@ function GM:PlayerSpawn(ply)
 end
 
 function GM:PlayerDeath(victim, inflictor, attacker)
-    attacker:AddFrags(1)
+    --attacker:AddFrags(1)
     for k, v in pairs(victim:GetWeapons()) do
         if not BaseWars.BlacklistedDrops[v] then
             victim:DropWeapon(v)

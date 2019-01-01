@@ -89,12 +89,23 @@ BaseWars.Shop.Upgrades = {
 
 BaseWars.Weapons.Shop = {
     {Name = "Crowbar", ClassName = "weapon_crowbar", Price = 2000, Level = 1, Model = "models/weapons/w_crowbar.mdl"},
-    {Name = "Pistol", ClassName = "weapon_pistol", Price = 5000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_pistol.mdl"},
-    {Name = "SMG", ClassName = "weapon_smg1", Price = 7000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_smg1.mdl"},
-    {Name = "Shotgun", ClassName = "weapon_shotgun", Price = 13000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_shotgun.mdl"},
-    {Name = "Crossbow", ClassName = "weapon_crossbow", Price = 50000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_crossbow.mdl"},
-    {Name = "RPG", ClassName = "weapon_rpg", Price = 1000000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_rocket_launcher.mdl"},
-    {Name = "Frag Grende", ClassName = "weapon_frag", Price = 100000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_grenade.mdl"}
+    {Name = "Colt 1911", ClassName = "m9k_coltscoped", Price = 5000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_pist_fiveseven.mdl"},
+    {Name = "Bren Ten", ClassName = "m9k_bren_ten", Price = 5000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_pist_glock18.mdl"},
+    {Name = "Remington", ClassName = "m9k_remington870", Price = 10000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_remington_870_tact.mdl"},
+    {Name = "M3", ClassName = "m9k_m3", Price = 10000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_benelli_m3.mdl"},
+    {Name = "Intervention", ClassName = "m9k_intervention", Price = 25000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_snip_int.mdl"},
+    {Name = "Barret M98B", ClassName = "m9k_m98b", Price = 30000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_barrett_m98b.mdl"},
+    {Name = "M24", ClassName = "m9k_m24", Price = 40000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_snip_m24_6.mdl"},
+    {Name = "ACR", ClassName = "m9k_acr", Price = 50000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_masada_acr.mdl"},
+    {Name = "AK 47", ClassName = "m9k_ak47", Price = 50000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_ak47_m9k.mdl"},
+    {Name = "FN Fal", ClassName = "m9k_fal", Price = 50000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_fn_fal.mdl"},
+    {Name = "G36", ClassName = "m9k_g36", Price = 50000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_hk_g36c.mdl"},
+    {Name = "M4A1", ClassName = "m9k_m4a1", Price = 50000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_m4a1_iron.mdl"},
+    {Name = "M60", ClassName = "m9k_m60", Price = 500000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_m60_machine_gun.mdl"},
+    {Name = "Frag Grenade", ClassName = "m9k_m61_frag", Price = 500000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_grenade.mdl"},
+    {Name = "Harpoon", ClassName = "m9k_harpoon", Price = 5000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_harpooner.mdl"},
+    {Name = "Machete", ClassName = "m9k_machete", Price = 5000, Level = BaseWars.Weapons.LevelRequirement, Model = "models/weapons/w_fc2_machete.mdl"}
+    
 }
 
 if CLIENT then
